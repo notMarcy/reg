@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../public'), {
   extensions: ['html', 'css', 'js']
 }))
 
-const DB_URL = 'mongodb+srv://samusevich21032007:samusevich21032007@cluster0.l9lrrg4.mongodb.net/usersDB?retryWrites=true&w=majority';
+const DB_URL= "mongodb+srv://Userrrrr:N4cb7lC9iGnyKxyK@cluster0.5q7gm0m.mongodb.net/PROFILE?retryWrites=true&w=majority/"
 mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(res => { console.log('connected to DB') })
   .catch(error => { console.log(error) })
@@ -20,14 +20,51 @@ mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true },
   password: String,
-  salt: String,
+  age: {
+    type: Number,
+    default: 0,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  balans: {
+    type: Number,
+    default: 1000,
+    required: false,
+  },
+  win: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  games: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  spent: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  raiting: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  img:{
+    type: String,
+    default: "",
+    require: false
+  }
 })
 
 const User = mongoose.model('users', userSchema)
 
 
 app.get('/', async (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'))
+  res.sendFile(path.join(__dirname + '/../public', 'register.html'))
 })
 
 app.get('/register', (req, res) => {
@@ -35,16 +72,17 @@ app.get('/register', (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-  const { username, password } = req.body
+  const { username, password, age, country } = req.body
 
-  const saltRounds = 10
-  const salt = await bcrypt.genSalt(saltRounds)
+  const salt = await bcrypt.genSalt(10)
   const hash = await bcrypt.hash(password, salt)
 
   const user = new User({
     username,
     password: hash,
-    salt,
+    age,
+    country,
+    salt
   });
 
   try {

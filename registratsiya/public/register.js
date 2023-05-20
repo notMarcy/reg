@@ -2,10 +2,12 @@ const register = document.querySelector('.register');
 
 register.addEventListener('submit', async (event) => {
   event.preventDefault();
-
+  
   const username = document.querySelector('.register>#username').value
   const password = document.querySelector('.register>#password').value
-  const data = { username, password }
+  const age = document.querySelector('.register>#age').value
+  const country = document.querySelector('.register>#country').value
+  const data = { username, password, age, country}
 
   const response = await fetch('/register', {
     method: 'POST',
@@ -19,4 +21,6 @@ register.addEventListener('submit', async (event) => {
   console.log(result);
   document.querySelector('.register>#username').value = ''
   document.querySelector('.register>#password').value = ''
+  document.querySelector('.register>#age').value = ''
+  document.querySelector('.register>#country').value = ''
 })
