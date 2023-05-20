@@ -20,7 +20,44 @@ mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true },
   password: String,
-  salt: String,
+  age: {
+    type: Number,
+    default: 0,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  balans: {
+    type: Number,
+    default: 1000,
+    required: false,
+  },
+  win: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  games: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  spent: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  raiting: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
+  img:{
+    type: String,
+    default: "",
+    require: false
+  }
 })
 
 const User = mongoose.model('users', userSchema)
@@ -35,16 +72,17 @@ app.get('/register', (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-  const { username, password } = req.body
+  const { username, password, age, country } = req.body
 
-  const saltRounds = 10
-  const salt = await bcrypt.genSalt(saltRounds)
+  const salt = await bcrypt.genSalt(10)
   const hash = await bcrypt.hash(password, salt)
 
   const user = new User({
     username,
     password: hash,
-    salt,
+    age,
+    country,
+    salt
   });
 
   try {
