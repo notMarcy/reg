@@ -27,7 +27,7 @@ const User = mongoose.model('users', userSchema)
 
 
 app.get('/', async (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'))
+  res.sendFile(path.join(__dirname + '/../public', 'register.html'))
 })
 
 app.get('/register', (req, res) => {
