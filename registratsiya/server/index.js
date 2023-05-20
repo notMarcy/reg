@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../public'), {
   extensions: ['html', 'css', 'js']
 }))
 
-const DB_URL = 'mongodb+srv://samusevich21032007:samusevich21032007@cluster0.l9lrrg4.mongodb.net/usersDB?retryWrites=true&w=majority';
+const DB_URL= "mongodb+srv://Userrrrr:N4cb7lC9iGnyKxyK@cluster0.5q7gm0m.mongodb.net/PROFILE?retryWrites=true&w=majority/"
 mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(res => { console.log('connected to DB') })
   .catch(error => { console.log(error) })
