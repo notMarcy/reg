@@ -9,6 +9,8 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: #000;
+  padding-top: 5%;
 }
 
 .login, .register{
@@ -18,13 +20,13 @@ body{
   background: black;
   padding: 30px;
   border-radius: 50px;
-  background: rgb(11, 116, 39);
+  background: #c40424;
   max-width: 500px;
   margin: 0 120px;
 }
  
 h1{
-  color: red;
+  color: white;
   font-size: 35px;
   margin: 10px 0;
 }

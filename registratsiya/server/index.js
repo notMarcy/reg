@@ -13,10 +13,17 @@ app.use(express.static(path.join(__dirname, '../public'), {
 }))
 
 const DB_URL= "mongodb+srv://Userrrrr:N4cb7lC9iGnyKxyK@cluster0.5q7gm0m.mongodb.net/PROFILE?retryWrites=true&w=majority/"
-mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+/* mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(res => { console.log('connected to DB') })
-  .catch(error => { console.log(error) })
-
+  .catch(error => { console.log(error) }) */
+mongoose.connect(DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  writeConcern: {
+    w: 'majority'
+  }
+}).then(res => { console.log('connected to DB') })
+.catch(error => { console.log(error) })
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true },
   password: String,
