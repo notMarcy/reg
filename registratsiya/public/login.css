@@ -21,9 +21,17 @@ body{
   padding: 30px;
   border-radius: 50px;
   background: #c40424;
-  max-width: 500px;
+  max-width: 50%;
+  max-height: 50%;
   margin: 0 120px;
 }
+
+@media (max-width:370px) {
+  body{
+    width: 370px;
+  }
+}
+
  
 h1{
   color: white;
@@ -35,18 +43,20 @@ input{
   padding: 7px;
   font-size: 20px;
   outline: none;
-  border: none;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border: 7px solid #c40424;
 }
- 
-button{
-  padding: 7px;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 5px;
-  border: #fff;
-  background: rgb(216, 19, 19);
-  color: #fff;
+
+#submit:hover{
   cursor: pointer;
+  color: red;
+  background: white;
+}
+
+.hover{
+  border: 7px solid purple;
+}
+
+label{
+  font-size: 25px;
 }
