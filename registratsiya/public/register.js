@@ -24,3 +24,21 @@ register.addEventListener('submit', async (event) => {
   document.querySelector('.register>#age').value = ''
   document.querySelector('.register>#country').value = ''
 })
+
+const inputs = document.querySelectorAll('.register>input')
+inputs[0].addEventListener('click', (e)=>{
+  e.preventDefault();
+  inputs[0].classList.toggle('hover');
+})
+inputs[1].addEventListener('click', (e)=>{
+  e.preventDefault();
+  inputs[1].classList.toggle('hover');
+})
+inputs[2].addEventListener('click', (e)=>{
+  e.preventDefault();
+  inputs[2].classList.toggle('hover');
+})
+inputs[3].addEventListener('click', (e)=>{
+  e.preventDefault();
+  inputs[3].classList.toggle('hover');
+})
