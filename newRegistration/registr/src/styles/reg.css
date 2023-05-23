@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Tilt+Warp&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+body, html{
+    height: 100%;
+}
+body{
+    padding: 4vmin;
+}
+.regForm{
+    width: 25%;
+    height: 60vmin;
+    margin: 0 auto;
+    background-color: rgb(29, 29, 29);
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 4vmin 2vmin;
+}
+form{
+    height: 50%;
+}
+
+h1{
+    color: white;
+    margin-bottom: 3vmin;
+}
+input{
+    width: 110%;
+    height: 25%;
+    padding: 2vmin;
+    border: rgb(140, 45, 140) 3px solid;
+    border-radius: 10px;
+    margin: 1vmin auto;
+
+    /* margin: 20px 0; */
+}
+.button{
+    cursor: pointer;
+    width: 40%;
+    height: 20%;
+    background-color: rgb(154, 62, 185);
+    border-radius: 10px;
+    border: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vmin auto;
+    transition: 0.2s;
+}
+.button:hover{
+    background-color: rgb(46, 16, 56);
+    color: white;
+    border: blueviolet 2px solid;
+}
